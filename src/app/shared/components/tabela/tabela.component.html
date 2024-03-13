@@ -1,0 +1,15 @@
+<table mat-table [dataSource]="origem.dados" class="mat-elevation-z8">
+    @for (coluna of origem.colunas; track $index) {
+    <ng-container matColumnDef="{{ coluna.nome }}">
+        <th mat-header-cell *matHeaderCellDef>
+            {{ coluna.titulo }}
+        </th>
+        <td mat-cell *matCellDef="let item">
+            {{ item[coluna.nome] }}
+        </td>
+    </ng-container>
+    }
+
+    <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+    <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
+</table>
