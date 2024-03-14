@@ -1,27 +1,7 @@
-# Componentizacao
+# Componentização
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
+[![Love Angular badge](https://img.shields.io/badge/angular-love-blue?logo=angular&angular=love&style=flat-square&color=ff69b4)](https://www.github.com/angular/angular) [![GitHub last commit](https://img.shields.io/github/last-commit/ortegavan/componentizacao?style=flat-square)](https://github.com/ortegavan/componentizacao/commits/) [![Code style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier) [![Made with love](https://img.shields.io/badge/made%20with%20%E2%99%A5%20by-ortegavan-ff69b4.svg?style=flat-square)](https://github.com/ortegavan)
 
-## Development server
+Este repositório contém o código fonte do projeto de exemplo para o artigo [Componentizando - mais! - a tabela do Angular Material](https://medium.com/@ortegavan/componentizando-mais-a-tabela-do-angular-material-a5c881b8e47c).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+[StackBlitz aqui](https://stackblitz.com/github/ortegavan/componentizacao).
