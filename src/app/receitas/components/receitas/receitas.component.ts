@@ -4,6 +4,8 @@ import { MatTableModule } from '@angular/material/table';
 import { Tabela } from '../../../shared/models/tabela.model';
 import { Receita } from '../../models/receita.model';
 import { TabelaComponent } from '../../../shared/components/tabela/tabela.component';
+import { TipoColuna } from '../../../shared/enums/tipo-coluna.enum';
+import { TipoPipe } from '../../../shared/enums/tipo-pipe.enum';
 
 @Component({
     selector: 'app-receitas',
@@ -22,13 +24,72 @@ export class ReceitasComponent implements OnInit {
 
     private criarTabela(): void {
         this.tabela.dados = this.service.buscarTodas();
-        this.tabela.colunas = [
-            { titulo: 'Nome', nome: 'nome' },
-            { titulo: 'Categoria', nome: 'categoria' },
-            { titulo: 'Tempo de preparo', nome: 'tempoPreparo' },
-            { titulo: 'Rendimento', nome: 'rendimento' },
-            { titulo: 'Criado em', nome: 'dataCadastro' },
-            { titulo: 'Ações', nome: 'acoes' },
+        this.tabela.acoes = [
+            {
+                titulo: 'Ver detalhes',
+                icone: 'read_more',
+                acao: this.verDetalhes.bind(this),
+            },
+            {
+                titulo: 'Editar',
+                icone: 'edit_note',
+                acao: this.editar.bind(this),
+            },
+            {
+                titulo: 'Excluir',
+                icone: 'delete_sweep',
+                acao: this.excluir.bind(this),
+            },
         ];
+        this.tabela.colunas = [
+            {
+                titulo: 'Nome',
+                nome: 'nome',
+                tipo: TipoColuna.conteudo,
+                pipe: TipoPipe.texto,
+            },
+            {
+                titulo: 'Categoria',
+                nome: 'categoria',
+                tipo: TipoColuna.conteudo,
+                pipe: TipoPipe.texto,
+            },
+            {
+                titulo: 'Tempo de preparo',
+                nome: 'tempoPreparo',
+                tipo: TipoColuna.conteudo,
+                pipe: TipoPipe.texto,
+            },
+            {
+                titulo: 'Rendimento',
+                nome: 'rendimento',
+                tipo: TipoColuna.conteudo,
+                pipe: TipoPipe.texto,
+            },
+            {
+                titulo: 'Criado em',
+                nome: 'dataCadastro',
+                tipo: TipoColuna.conteudo,
+                pipe: TipoPipe.data,
+            },
+            {
+                titulo: '',
+                nome: 'acoes',
+                tipo: TipoColuna.acao,
+                pipe: TipoPipe.texto,
+            },
+        ];
+    }
+
+    public verDetalhes(receita: Receita): void {
+        console.log('Ver detalhes');
+    }
+
+    public editar(receita: Receita): void {
+        console.log('Editar');
+    }
+
+    public excluir(receita: Receita): void {
+        console.log('Excluir');
     }
 }

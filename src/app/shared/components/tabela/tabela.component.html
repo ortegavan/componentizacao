@@ -1,12 +1,29 @@
 <table mat-table [dataSource]="origem.dados" class="mat-elevation-z8">
     @for (coluna of origem.colunas; track $index) {
-    <ng-container matColumnDef="{{ coluna.nome }}">
-        <th mat-header-cell *matHeaderCellDef>
-            {{ coluna.titulo }}
-        </th>
+    <ng-container [matColumnDef]="coluna.nome">
+        <th mat-header-cell *matHeaderCellDef>{{ coluna.titulo }}</th>
+
+        @if (coluna.tipo == 0) {
+        <td mat-cell *matCellDef="let item">{{ item[coluna.nome] | pipeManager: coluna.pipe }}</td>
+        }
+
+        @if (coluna.tipo == 1) {
         <td mat-cell *matCellDef="let item">
-            {{ item[coluna.nome] }}
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+
+            <mat-menu #menu="matMenu">
+                <ng-template matMenuContent>
+                    @for (acao of origem.acoes; track $index) {
+                    <button mat-menu-item (click)="acao.acao(item)">
+                        <mat-icon>{{ acao.icone }}</mat-icon> {{ acao.titulo }}
+                    </button>
+                    }
+                </ng-template>
+            </mat-menu>
         </td>
+        }
     </ng-container>
     }
 
